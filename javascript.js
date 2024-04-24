@@ -22,9 +22,11 @@ div.appendChild(log);
 
 const res = document.createElement("div");
 div.appendChild(res);
-
+let gameEnded = false;
 
 div.addEventListener('click', (event) =>{
+    if(gameEnded)
+      return;
       
     let computerSelection;
     computerSelection = Math.floor(Math.random() * 3);
@@ -59,19 +61,38 @@ let scoreComp = 0;
 
 function playRound(playerSelection, computerSelection){
 
-   
-    
-    if (playerSelection == 0 && computerSelection == 2){
+    if(scorePlayer == 5){
+       res.textContent = `Game over player wins!!`;
+       scoreComp = 0;
+       scorePlayer = 0;
+    }
+    else if(scoreComp == 5){
+       res.textContent = `Game over the computer wins better luck next time`;
+       scoreComp = 0;
+       scorePlayer = 0;
+    }
+       
+    else if(playerSelection == 0 && computerSelection == 2)
+    {
         ++scorePlayer;
+        if(scorePlayer == 5)
+           gameEnded = true;
+        
         res.textContent = `Player score is ${scorePlayer}`;
     }
 
     else if(playerSelection == 1 && computerSelection == 0){
         ++scorePlayer;
+        if(scorePlayer == 5)
+           gameEnded = true;
+
         res.textContent = `Player score is ${scorePlayer}`;
     }
     else if (playerSelection == 2 && computerSelection == 1){
         ++scorePlayer;
+        if(scorePlayer == 5)
+           gameEnded = true;
+
         res.textContent = `Player score is ${scorePlayer}`;
     }
 
@@ -80,6 +101,9 @@ function playRound(playerSelection, computerSelection){
 
     else{
         ++scoreComp;
+        if(scoreComp == 5)
+           gameEnded = true; 
+
         res.textContent = `Computer score is ${scoreComp}`;
     }
 
@@ -87,12 +111,7 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function display(scorePlayer, scoreComp){
-    do{
 
-
-    }while(scorePlayer < 5 && scoreComp < 5);
-}
 
 
 
