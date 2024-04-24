@@ -1,6 +1,6 @@
 
 
-const div = document.querySelector("div");
+const div = document.querySelector("#container");
 div.setAttribute("style", "height:200px; margin:50px; width:800px;");
 const rock = document.createElement("button");
 div.appendChild(rock);
@@ -16,19 +16,30 @@ scissors.textContent = "Scissors";
 div.appendChild(scissors);
 
 
+div.addEventListener('click', (event) =>{
+      let target = event.target;
+      switch(target)
+      {
+        case rock:
+           playerSelection = 0;
+           playRound(playerSelection,computerSelection)
+           console.log("Rock clicked");
+           break;
 
-function getPlayerChoice() {
-    let playerChoice = prompt('Rock,paper or scissors?').toUpperCase();
-    if (playerChoice == 'ROCK')
-        return 0;
-    else if (playerChoice == 'PAPER')
-        return 1;
-    else if (playerChoice == 'SCISSORS')
-        return 2;
-    else
-        return getPlayerChoice();
+        case paper:
+            playerSelection = 1;
+            playRound(playerSelection,computerSelection)
+            console.log("Paper clicked");
+            break;
+        
+        case scissors:
+            playerSelection = 2;
+            playRound(playerSelection,computerSelection)
+            console.log("Scissors clicked");
+            break;
+      }
+});
 
-}
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -36,24 +47,30 @@ function getComputerChoice() {
 }
 
 
-
 function playRound(playerSelection, computerSelection) {
 
-
+   
+    let scorePlayer = 0;
+    let scoreComp = 0;
+    
     if (playerSelection == 0 && computerSelection == 2)
-        return 'You win! rock beats scissors';
+        scorePlayer++;
 
     else if (playerSelection == 1 && computerSelection == 0)
-        return 'You win! paper beats rock';
+        scorePlayer++;
 
     else if (playerSelection == 2 && computerSelection == 1)
-        return 'You win! scissor beats paper';
+        scorePlayer++;
 
     else if (playerSelection == computerSelection)
-        return "It's a draw";
+         ;
 
     else
-        return "The computer wins! better luck next time";
+        scoreComp++;
+        
+    
+    if(playerSelection == 5)
+       
 
 }
 
