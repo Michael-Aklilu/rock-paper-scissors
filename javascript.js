@@ -1,15 +1,17 @@
 
-
 const div = document.querySelector("#container");
 div.setAttribute("style", "height:200px; margin:50px; width:800px;");
+
 const rock = document.createElement("button");
 div.appendChild(rock);
 rock.setAttribute("style", "height:30px; margin:20px; width:70px;");
 rock.textContent = "Rock";
+
 const paper = document.createElement("button");
 paper.setAttribute("style", "height:30px; margin:20px; width:70px;");
 paper.textContent = "Paper";
 div.appendChild(paper);
+
 const scissors = document.createElement("button");
 scissors.setAttribute("style", "height:30px; margin:20px; width:70px;");
 scissors.textContent = "Scissors";
@@ -17,65 +19,84 @@ div.appendChild(scissors);
 
 const log = document.createElement("div");
 div.appendChild(log);
-let playerSelection;
-let computerSelection;
 
-function getComputerChoice() {
-    let computerSelection = Math.floor(Math.random() * 3);
-}
+const res = document.createElement("div");
+div.appendChild(res);
 
 
 div.addEventListener('click', (event) =>{
-      let target = event.target;
+      
+    let computerSelection;
+    computerSelection = Math.floor(Math.random() * 3);
+
+    let playerSelection;
+    let target = event.target;
       switch(target)
       {
         case rock:
            playerSelection = 0;
-           playRound(playerSelection,computerSelection)
            log.textContent = "Rock clicked";
+           playRound(playerSelection,computerSelection);
            break;
 
         case paper:
             playerSelection = 1;
-            playRound(playerSelection,computerSelection)
             log.textContent = "Paper clicked";
+            playRound(playerSelection,computerSelection);
             break;
         
         case scissors:
             playerSelection = 2;
-            playRound(playerSelection,computerSelection)
             log.textContent = "Scissors clicked";
+            playRound(playerSelection,computerSelection);
             break;
       }
 });
 
 
+let scorePlayer = 0;
+let scoreComp = 0;
 
-
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection){
 
    
-    let scorePlayer = 0;
-    let scoreComp = 0;
     
-    if (playerSelection == 0 && computerSelection == 2)
-        scorePlayer++;
+    if (playerSelection == 0 && computerSelection == 2){
+        ++scorePlayer;
+        res.textContent = `Player score is ${scorePlayer}`;
+    }
 
-    else if (playerSelection == 1 && computerSelection == 0)
-        scorePlayer++;
-
-    else if (playerSelection == 2 && computerSelection == 1)
-        scorePlayer++;
+    else if(playerSelection == 1 && computerSelection == 0){
+        ++scorePlayer;
+        res.textContent = `Player score is ${scorePlayer}`;
+    }
+    else if (playerSelection == 2 && computerSelection == 1){
+        ++scorePlayer;
+        res.textContent = `Player score is ${scorePlayer}`;
+    }
 
     else if (playerSelection == computerSelection)
-         ;
+         res.textContent = 'Stalemate go again';
 
-    else
-        scoreComp++;
+    else{
+        ++scoreComp;
+        res.textContent = `Computer score is ${scoreComp}`;
+    }
+
         
-       
 
 }
+
+function display(scorePlayer, scoreComp){
+    do{
+
+
+    }while(scorePlayer < 5 && scoreComp < 5);
+}
+
+
+
+
 
 /*function playGame() {
 
