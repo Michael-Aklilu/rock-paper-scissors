@@ -1,3 +1,10 @@
+
+
+let div = document.querySelectorAll("div");
+
+
+
+
 function getPlayerChoice() {
     let playerChoice = prompt('Rock,paper or scissors?').toUpperCase();
     if (playerChoice == 'ROCK')
@@ -38,7 +45,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function playGame() {
+/*function playGame() {
 
     let counterPlayerWin = 0;
     let counterCompWin = 0;
@@ -64,6 +71,4 @@ function playGame() {
         alert("It's a draw");
 }
 playGame();
-
-
-
+*/
