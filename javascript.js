@@ -15,6 +15,15 @@ scissors.setAttribute("style", "height:30px; margin:20px; width:70px;");
 scissors.textContent = "Scissors";
 div.appendChild(scissors);
 
+const log = document.createElement("div");
+div.appendChild(log);
+let playerSelection;
+let computerSelection;
+
+function getComputerChoice() {
+    let computerSelection = Math.floor(Math.random() * 3);
+}
+
 
 div.addEventListener('click', (event) =>{
       let target = event.target;
@@ -23,28 +32,24 @@ div.addEventListener('click', (event) =>{
         case rock:
            playerSelection = 0;
            playRound(playerSelection,computerSelection)
-           console.log("Rock clicked");
+           log.textContent = "Rock clicked";
            break;
 
         case paper:
             playerSelection = 1;
             playRound(playerSelection,computerSelection)
-            console.log("Paper clicked");
+            log.textContent = "Paper clicked";
             break;
         
         case scissors:
             playerSelection = 2;
             playRound(playerSelection,computerSelection)
-            console.log("Scissors clicked");
+            log.textContent = "Scissors clicked";
             break;
       }
 });
 
 
-function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random() * 3);
-    return computerChoice;
-}
 
 
 function playRound(playerSelection, computerSelection) {
@@ -68,8 +73,6 @@ function playRound(playerSelection, computerSelection) {
     else
         scoreComp++;
         
-    
-    if(playerSelection == 5)
        
 
 }
