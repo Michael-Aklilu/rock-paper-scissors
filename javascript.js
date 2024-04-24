@@ -1,7 +1,19 @@
 
 
-let div = document.querySelectorAll("div");
-
+const div = document.querySelector("div");
+div.setAttribute("style", "height:200px; margin:50px; width:800px;");
+const rock = document.createElement("button");
+div.appendChild(rock);
+rock.setAttribute("style", "height:30px; margin:20px; width:70px;");
+rock.textContent = "Rock";
+const paper = document.createElement("button");
+paper.setAttribute("style", "height:30px; margin:20px; width:70px;");
+paper.textContent = "Paper";
+div.appendChild(paper);
+const scissors = document.createElement("button");
+scissors.setAttribute("style", "height:30px; margin:20px; width:70px;");
+scissors.textContent = "Scissors";
+div.appendChild(scissors);
 
 
 
