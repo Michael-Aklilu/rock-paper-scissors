@@ -20,10 +20,15 @@ div.appendChild(scissors);
 const log = document.createElement("div");
 div.appendChild(log);
 
-const res = document.createElement("div");
-res.setAttribute("style", "height: 50px; margin:50px; width: 180px;");
-div.appendChild(res);
+const resPl = document.createElement("div");
+div.appendChild(resPl);
+
+
+const resComp = document.createElement("div");
+div.appendChild(resComp);
+
 let gameEnded = false;
+
 
 div.addEventListener('click', (event) =>{
     if(gameEnded)
@@ -73,43 +78,50 @@ function playRound(playerSelection, computerSelection){
         ++scorePlayer;
         if(scorePlayer == 5){
            gameEnded = true;
-           res.textContent = `Game over player wins!!`
+           resPl.textContent = `Game over player wins!!`
         }
-        else
-           res.textContent = `Player score: ${scorePlayer}`;
-        
+        else{
+           resPl.textContent = `Player score: ${scorePlayer}`;
+           resComp.textContent = `Computer score: ${scoreComp}`;
+        }
     }
 
     else if(playerSelection == 1 && computerSelection == 0){
         ++scorePlayer;
         if(scorePlayer == 5){
             gameEnded = true;
-            res.textContent = `Game over player wins!!`
+            resPl.textContent = `Game over player wins!!`
          }
-        else
-            res.textContent = `Player score is ${scorePlayer}`;
+         else{
+            resPl.textContent = `Player score: ${scorePlayer}`;
+            resComp.textContent = `Computer score: ${scoreComp}`;
+         }
     }
     else if (playerSelection == 2 && computerSelection == 1){
         ++scorePlayer;
         if(scorePlayer == 5){
             gameEnded = true;
-            res.textContent = `Game over player wins!!`
+            resPl.textContent = `Game over player wins!!`
          }
-        else
-            res.textContent = `Player score is ${scorePlayer}`;
+         else{
+            resPl.textContent = `Player score: ${scorePlayer}`;
+            resComp.textContent = `Computer score: ${scoreComp}`;
+         }
     }
 
-    else if (playerSelection == computerSelection)
-         res.textContent = 'Stalemate go again';
+   /* else if (playerSelection == computerSelection)
+         resPl.textContent = 'Stalemate go again';*/
 
     else{
         ++scoreComp;
         if(scoreComp == 5){
             gameEnded = true;
-            res.textContent = `Game over computer wins!!`
+            resPl.textContent = `Game over computer wins!!`
          }
-        else
-            res.textContent = `Computer score is ${scoreComp}`;
+         else{
+            resPl.textContent = `Player score: ${scorePlayer}`;
+            resComp.textContent = `Computer score: ${scoreComp}`;
+         }
     }
 
         
