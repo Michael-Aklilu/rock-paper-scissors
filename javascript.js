@@ -21,6 +21,7 @@ const log = document.createElement("div");
 div.appendChild(log);
 
 const res = document.createElement("div");
+res.setAttribute("style", "height: 50px; margin:50px; width: 180px;");
 div.appendChild(res);
 let gameEnded = false;
 
@@ -61,12 +62,7 @@ let scoreComp = 0;
 
 function playRound(playerSelection, computerSelection){
 
-    if(scorePlayer == 5){
-       res.textContent = `Game over player wins!!`;
-       scoreComp = 0;
-       scorePlayer = 0;
-    }
-    else if(scoreComp == 5){
+    if(scoreComp == 5){
        res.textContent = `Game over the computer wins better luck next time`;
        scoreComp = 0;
        scorePlayer = 0;
@@ -75,25 +71,32 @@ function playRound(playerSelection, computerSelection){
     else if(playerSelection == 0 && computerSelection == 2)
     {
         ++scorePlayer;
-        if(scorePlayer == 5)
+        if(scorePlayer == 5){
            gameEnded = true;
+           res.textContent = `Game over player wins!!`
+        }
+        else
+           res.textContent = `Player score: ${scorePlayer}`;
         
-        res.textContent = `Player score is ${scorePlayer}`;
     }
 
     else if(playerSelection == 1 && computerSelection == 0){
         ++scorePlayer;
-        if(scorePlayer == 5)
-           gameEnded = true;
-
-        res.textContent = `Player score is ${scorePlayer}`;
+        if(scorePlayer == 5){
+            gameEnded = true;
+            res.textContent = `Game over player wins!!`
+         }
+        else
+            res.textContent = `Player score is ${scorePlayer}`;
     }
     else if (playerSelection == 2 && computerSelection == 1){
         ++scorePlayer;
-        if(scorePlayer == 5)
-           gameEnded = true;
-
-        res.textContent = `Player score is ${scorePlayer}`;
+        if(scorePlayer == 5){
+            gameEnded = true;
+            res.textContent = `Game over player wins!!`
+         }
+        else
+            res.textContent = `Player score is ${scorePlayer}`;
     }
 
     else if (playerSelection == computerSelection)
@@ -101,10 +104,12 @@ function playRound(playerSelection, computerSelection){
 
     else{
         ++scoreComp;
-        if(scoreComp == 5)
-           gameEnded = true; 
-
-        res.textContent = `Computer score is ${scoreComp}`;
+        if(scoreComp == 5){
+            gameEnded = true;
+            res.textContent = `Game over computer wins!!`
+         }
+        else
+            res.textContent = `Computer score is ${scoreComp}`;
     }
 
         
