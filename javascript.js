@@ -109,9 +109,6 @@ function playRound(playerSelection, computerSelection){
          }
     }
 
-   /* else if (playerSelection == computerSelection)
-         resPl.textContent = 'Stalemate go again';*/
-
     else{
         ++scoreComp;
         if(scoreComp == 5){
@@ -124,40 +121,6 @@ function playRound(playerSelection, computerSelection){
          }
     }
 
-        
-
 }
 
 
-
-
-
-
-
-/*function playGame() {
-
-    let counterPlayerWin = 0;
-    let counterCompWin = 0;
-
-
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
-
-        playRound(playerSelection, computerSelection);
-        if (result.includes("You"))
-            counterPlayerWin++;
-        else if (result.includes("The"))
-            counterCompWin++;
-    }
-
-    if (counterPlayerWin > counterCompWin)
-        alert("You win the game congrats");
-    else if (counterCompWin > counterPlayerWin)
-        alert("The computer wins better luck next time");
-    else
-        alert("It's a draw");
-}
-playGame();
-*/
